@@ -88,7 +88,19 @@ align-items: flex-end;
     right: 0px;
     
     }
-  
+  /* fetch part.. / */
+  .container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+}
+.container img {
+    width: 100%;
+    height: 400px;
+}
+
+
     </style>
 </head>
 <body>
@@ -177,13 +189,55 @@ align-items: flex-end;
 </div>
 </div>
 
-
-
-
-<div class="help">
-<button>HELP </button>
-</div>
+<div class="container"></div>
 
 
 </body>
+<script>
+
+const API = "https://fakestoreapi.com/products"
+    let container = document.querySelector(".container")
+    fetch(API)
+    .then ((request)=>{
+     return request.json();
+    })
+    .then((data)=>{
+console.log(data);
+productAll(data)
+    })
+    .catch((error)=>{
+console.log(error);
+    })
+
+    function productAll (data){
+        data.forEach((element) => {
+
+        let productcard  = document.createElement("div")
+
+        let img = document.createElement("img")
+        img.setAttribute("src",element.image)
+
+        let title = document.createElement("h2")
+        title.innerText = element.title
+
+        let category = document.createElement("h2")
+        category.innerText= element.category
+
+        let desc = document.createElement("h4")
+        desc.innerText = element.description
+;       
+        let price = document.createElement("h4")
+        price.innerText = element.price
+
+        let id = document.createElement ("p")
+        id.innerText = element.id
+
+        let button = document.createElement("button")
+        button.innerText="Add To cart"
+
+        productcard.append(img,title,category,desc,price,id ,button)
+        container.append(productcard)
+        });
+    }
+</script>
 </html>
