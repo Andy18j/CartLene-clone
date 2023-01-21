@@ -4,13 +4,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WishList</title>
+    <title>Wishlist </title>
 </head>
-<body> 
-    <div id="container">
-        <h1>Your WishList</h1>
-
-    </div>
-    
+<body>
+    <div class="nav">
+        <h1>CaratLene Shop </h1>
+        <a href="./otherJewllery.html">Home</a>
+        <a href="./wishlish.html">Favourites</a>
+      </div>
+      <h1 id="total">Your a total <span id="fav-total">0</span> elements in the wishlist</h1>
+      <div id="fav-container">
 </body>
+<script>
+
+
+
+
+
+let container=document.getElementById("fav-container");
+
+  
+    
+
+let fav = JSON.parse(localStorage.getItem("wishlist"))
+displaycard(fav)
+
+function displayproduct (data){
+menu.innerHTML=""
+data.forEach((element) => {
+
+  let div=document.createElement("div") ;
+
+  
+  let images=document.createElement("img")
+        images.setAttribute("src",element.images)
+
+        let title = document.createElement("h4")
+        title.innerText = element.title
+
+        let category = document.createElement("p")
+        category.innerText = element.category
+
+        let description = document.createElement("p")
+        description.innerText = element.description
+
+        let original_price = document.createElement("p")
+        original_price.innerText = element.original_price
+
+        let  sizes = document.createElement("p")
+        sizes.innerText = element.sizes
+
+        let rating = document.createElement("p")
+        rating.innerText = element.rating
+
+        let id = document.createElement("p")
+        id.innerText = element.id
+
+        let button  =document.createElement("button")
+         button.innerText =  "Add To Cart"
+         button.addEventListener("click",function(){
+          
+          
+        
+       
+        })
+
+
+      menu.append(div)
+      div.append(images,title,category,description,original_price,sizes,rating,button)
+  
+});
+
+}
+
+
+
+
+
+
+
+</script>
 </html>
