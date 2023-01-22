@@ -9,7 +9,7 @@
 
       #menu-container {
 
-        border: 2px solid red;
+        /* border: 2px solid red; */
         width: 100%;
         display: grid;
         grid-template-columns: repeat(4,1fr);
@@ -52,7 +52,7 @@ let menu = document.getElementById("menu-container");
 
 
   // let data=[]
-fetch(`allproducts.json`)
+fetch(`./allproducts.json`)
 
 .then((request)=>{
     return request.json();
@@ -62,13 +62,13 @@ fetch(`allproducts.json`)
     // fetchdata = data
   displayproduct(data)
   // data = [...data.data]
-  // dofilter(data)
+  
 })
 .catch ((error)=>{
     console.log(error);
 
 })
-let fav = JSON.parse(localStorage.getItem("wishlist"))
+let fav = JSON.parse(localStorage.getItem("wishlist"))||[]
 
 function displayproduct (data){
 menu.innerHTML=""
@@ -107,14 +107,17 @@ data.forEach((element) => {
           
           
           let isadded =false 
-          // for (let i=0;i<=fav.length;i++){
-          //   if (fav[i].id==element.id){
-          //     isadded = true
-          //   }
-          // }
-          if (isadded == true){
+          for (let i=0;i<=fav.length-1;i++){
+            if (fav[i].id===element.id){
+              isadded = true
+            }
+          }   
+              if (isadded == true){
+
             alerts.innerHTML = "product already in the wishlist"
           }else{
+            fav.push(element)
+            localStorage.setItem("wishlist",JSON.stringify(fav))
             alerts.innerHTML = "product added to the wishlist"
           }
        

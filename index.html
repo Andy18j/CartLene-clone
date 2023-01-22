@@ -375,6 +375,21 @@ padding-top: 50px;
     height: 600px;
     padding-top: 100px;
  }
+ #fff {
+    /* border: 2px solid red ; */
+    width: 100% ;
+    height: 700px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    text-align: center;
+ 
+ }
+ #fff button {
+  border-radius: 15px;
+  border-color: purple;
+ }
+
+
  </style>
 </head>
 <body>
@@ -396,8 +411,8 @@ padding-top: 50px;
         <p>FREE TRY AT HOME</p>
         <p>FIND STORE</p>
         <P>PLAN OF PURCHESE</P>
-        <p>BUY DIGITAL GOLD</p>
-
+<p>BUY DIGITAL GOLD</p>
+           
         <input placeholder="Search" type="text" id="search" />
         <!-- <input type="submit" value="Search" /> -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -410,7 +425,7 @@ search
      <img  width="120px" src="https://media.istockphoto.com/id/1032066158/vector/india-round-flag-vector-flat-icon.jpg?s=612x612&w=0&k=20&c=cZO8Tq3HkrD1AZ3tGXYCHBq1S4oO5hrqrRaxKua1P5k=" alt="">
     
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-   <span class="material-symbols-outlined">
+   <span class="material-symbols-outlined"  id="login">
    person
   </span>
 
@@ -420,8 +435,8 @@ search
   </span>
 
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <span class="material-symbols-outlined">
+  <link  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <span class="material-symbols-outlined"  id="wishlist">
   favorite
   </span>
 
@@ -435,15 +450,15 @@ search
 <br><br><br><br><br>
 </div>
 <div class="nav-2">
-    <p >NEW ARRIVAL</p>
-    <P >RINGS</P>
+   <p >NEW ARRIVAL</p>
+    <a href="./rings.html"> <P >RINGS</P></a>
     <p >EARRING</p>
     <p >BRACLETS AND BENGLES</p>
     <p >SOLITAIRES</p>
     <p >MANGALSUTRA</p>
     <p >READY TO SHIP</p>
     <p >KIDS</p>
-    <p >OTHER JWELLARY</p>
+   <a href="./otherJewllery.html"> <p >OTHER JWELLARY</p></a>
     <p  >GIFTING</p>
 </div>
 
@@ -489,7 +504,7 @@ search
 
 <div id="middlebtn" >
 <img src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/Collection/02/Collection_Mogra.jpg" alt="">
-<button>View All Collection</button>
+   <a href="./viewalldetails.html"><button>View All Collection</button></a>
 </div>
 
 <img class="img1" src="https://cdn.caratlane.com/media/static/images/V4/2022/CL/12-DEC/HP-Banner/Collection/02/Collection_Harmony.jpg" alt="">
@@ -702,10 +717,69 @@ search
                 
                 CaratLane provides the exquisite craftsmanship of beautiful jewellery designs such as rings, earrings, pendants, necklace, chains, bangles, bracelets, mangalsutra, nose pins. Apart from jewellery, CaratLane offers 22k (916) and 24k (995) gold coins with certification and the guarantee of a BIS Hallmarked stamp.</p>
     </div>
+</div>
+<div id="fff">
+    <div >
+        <h1>Know Your Jewellery </h1>
+      <p>DIAMOND GUIDE </p>
+      <p>JEWELLERY GUIDE</p>
+      <p>GEMSTONES GUIDE</p>
+      <p>GOLD RATE</p>
+      <p>DIGITAL GOLD</p>
+    </div>
 
+    <div >
+     <h1> CaratLane Advantage</h1>
+     <p>15-DAY RETURNS</p>
+     <p> FREE SHIPPING </p>
+     <p>FINANCING OPTIONS</p>
+     <p>OLD GOLD EXCHANGE</p>
+    </div>
+    <div >
+     <h1> Customer Service</h1>
+     <p>RETURN POLICY</p>
+     <p>ORDER STATUS</p>
+    </div>
+    <div >
+      <h1> About Us</h1>
+      <p>OUR STORY</p>
+      <p>PRESS</p>
+       <p> BLOG</p>
+       <p>  CAREERS</p>
+       </div>
+       <div>
+     <h1>Contact Us</h1>
+     <img width="35px
+     " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvVJyln3II9i0YIL5aCHafwdRArEcHZyV23Iu0qUM&s" alt="">
+<img width="35px
+" src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX5754839.jpg" alt="">
+<img width="35px" src="https://thumbs.dreamstime.com/b/whatsapp-icon-logo-element-sign-vector-purple-mobile-app-white-background-whatsapp-icon-logo-element-sign-vector-mobile-app-139246474.jpg" alt="">
+
+<p>
+    Social Icons
+    Social Icons
+    24X7 Enquiry Support ( ALL Days )</p>
+    <p>General : Contactus@Caratlane.Com</p>
+    <p> Corporate : B2B@Caratlane.Com </p> 
+    <p> HR : Careers@Caratlane.Com </p>
+    <p>Grievance : Click Here </p>  
+
+    <a href="https://www.caratlane.com/stores/delhincr/catalog?filters="><button> Find a Store </button></a>
+</div>
+    </div>
 
 </div>
-
-
 </body>
+
+<script>
+
+    document.getElementById("wishlist").addEventListener("click",()=>{
+        window.location.href="./wishlish.html"
+    })
+
+    document.getElementById("login").addEventListener("click",()=>{
+        window.location.href="./signup.html"
+    })
+    
+</script>
 </html>

@@ -5,6 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishlist </title>
+
+    <style>
+     .nav {
+      /* border: 2px solid red; */
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+      text-align: center;
+
+     }
+     .nav img {
+      width: 100px;
+     }
+
+
+    </style>
 </head>
 <body>
     <div class="nav">
@@ -27,10 +43,10 @@ let container=document.getElementById("fav-container");
     
 
 let fav = JSON.parse(localStorage.getItem("wishlist"))
-displaycard(fav)
+displayproduct(fav)
 
 function displayproduct (data){
-menu.innerHTML=""
+container.innerHTML=""
 data.forEach((element) => {
 
   let div=document.createElement("div") ;
@@ -61,18 +77,23 @@ data.forEach((element) => {
         id.innerText = element.id
 
         let button  =document.createElement("button")
-         button.innerText =  "Add To Cart"
-         button.addEventListener("click",function(){
-          
+        button.innerText="Delete"
+        button.addEventListener("click",function(){
+      fav.splice(element,1)
+      localStorage.setItem("wishlist", JSON.stringify(fav))
+        window.location.reload();
+      });
+
           
         
        
-        })
+      
+        let total=document.getElementById("fav-total");
+   total.innerText=fav.length;
 
 
-      menu.append(div)
       div.append(images,title,category,description,original_price,sizes,rating,button)
-  
+      container.append(div)
 });
 
 }
