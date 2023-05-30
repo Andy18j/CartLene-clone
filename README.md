@@ -18,4 +18,5 @@ This websites is a clone of caratlene. caratlene is e-commerce website that they
 <li>Login/Sign-up</li>
 <li> Products page</li>
 <li>Cart Functionality</li>
+<li>purchase page</li>
 </ul>
