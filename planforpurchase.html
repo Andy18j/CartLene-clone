@@ -136,9 +136,10 @@ align-items: flex-end;
        person 
      
       </span>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+      <link  rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <span class="material-symbols-outlined">
     shopping_basket
+
     </span> 
 
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -190,10 +191,12 @@ align-items: flex-end;
 </div>
 
 <div class="container"></div>
-
-
+<div id="alertt"></div>
+<!-- <h1 id="Alert"></h1> -->
 </body>
 <script>
+
+let alert = document.getElementById("Alertt")||[]
 
 const API = "https://fakestoreapi.com/products"
     let container = document.querySelector(".container")
@@ -208,6 +211,9 @@ productAll(data)
     .catch((error)=>{
 console.log(error);
     })
+
+    let orderList = JSON.parse(localStorage.getItem("Book TRY at Home ")) || [];
+
 
     function productAll (data){
         data.forEach((element) => {
@@ -233,7 +239,21 @@ console.log(error);
         id.innerText = element.id
 
         let button = document.createElement("button")
-        button.innerText="Add To cart"
+        button.innerText="Book TRY at Home"
+
+        button.addEventListener("click",()=>{
+            let isadded = orderList.find((el)=> el.title == element.title)
+            if (isadded){
+                alert.innerText = "already placed order "
+      
+            }else {
+                orderList.push ({...element,quantity:1})
+                localStorage.setItem("Book TRY at Home",JSON.stringify(orderList))
+            }
+        })
+
+
+
 
         productcard.append(img,title,category,desc,price,id ,button)
         container.append(productcard)

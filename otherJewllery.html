@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>otherJewllery</title>
+    <style>
+
+      #menu-container {
+
+        /* border: 2px solid red; */
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+      text-align: center;
+
+      }
+      #menu-container img {
+        width: 150px;
+      }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h1> CaratLane shop </h1>
+        <a href="./otherJewllery.html">Home</a>
+        <a href="./wishlish.html">Ordered</a>
+      </div>
+      <div id="filter">
+        <input type="number" id="lower" />
+        <input type="number" id="upper" />
+        <button id="filter-btn">Filter</button>
+      </div>
+      <select id="sort">
+        <option value="">Sort By Price</option>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+      <h1 id="alert"></h1>
+      <div id="menu-container">
+      
+      </div>
+
+
+</body>
+
+<script>
+
+let menu = document.getElementById("menu-container");
+  let alerts = document.getElementById("alert");
+
+
+  // let data=[]
+fetch(`./allproducts.json`)
+
+.then((request)=>{
+    return request.json();
+})
+.then ((data)=>{
+    console.log(data);
+    // fetchdata = data
+  displayproduct(data)
+  // data = [...data.data]
+  
+})
+.catch ((error)=>{
+    console.log(error);
+
+})
+let fav = JSON.parse(localStorage.getItem("wishlist"))||[]
+
+function displayproduct (data){
+menu.innerHTML=""
+data.forEach((element) => {
+
+  let div=document.createElement("div") ;
+
+  
+  let images=document.createElement("img")
+        images.setAttribute("src",element.images)
+
+        let title = document.createElement("h4")
+        title.innerText = element.title
+
+        let category = document.createElement("p")
+        category.innerText = element.category
+
+        let description = document.createElement("p")
+        description.innerText = element.description
+
+        let original_price = document.createElement("p")
+        original_price.innerText = element.original_price
+
+        let  sizes = document.createElement("p")
+        sizes.innerText = element.sizes
+
+        let rating = document.createElement("p")
+        rating.innerText = element.rating
+
+        let id = document.createElement("p")
+        id.innerText = element.id
+
+        let button  =document.createElement("button")
+         button.innerText =  "Add To Cart"
+         button.addEventListener("click",function(){
+          
+          
+          let isadded =false 
+          for (let i=0;i<=fav.length-1;i++){
+            if (fav[i].id===element.id){
+              isadded = true
+            }
+          }   
+              if (isadded == true){
+
+            alerts.innerHTML = "product already in the wishlist"
+          }else{
+            fav.push(element)
+            localStorage.setItem("wishlist",JSON.stringify(fav))
+            alerts.innerHTML = "product added to the wishlist"
+          }
+       
+        })
+
+
+      menu.append(div)
+      div.append(images,title,category,description,original_price,sizes,rating,button)
+  
+});
+
+}
+
+</script>
+</html>
